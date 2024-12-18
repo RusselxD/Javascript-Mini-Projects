@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+
+        <div id="bot-circle" class="circle"></div>
+        <div id="top-circle" class="circle"></div>
+        <div id="left-square" class="square"></div>
+        <div id="right-square" class="square"></div>
+
+        <div id="outermost-container">
+            <div id="output-container">
+                <input type="text" id="operation-text" disabled />
+                <input type="text" id="result-text" disabled />
+            </div>
+            <div id="buttons-container">
+                <button class="clearBtn" id="clearAllBtn">C</button>
+                <button class="clearBtn" id="clearEntryBtn">CE</button>
+                <button class="operationBtn" onclick="operatorClick(event)">/</button>
+                <button class="operationBtn" onclick="operatorClick(event)">x</button>
+
+                <button class="digitBtn" onclick="digitClick(event)">7</button>
+                <button class="digitBtn" onclick="digitClick(event)">8</button>
+                <button class="digitBtn" onclick="digitClick(event)">9</button>
+                <button class="operationBtn" onclick="operatorClick(event)">-</button>
+
+                <button class="digitBtn" onclick="digitClick(event)">4</button>
+                <button class="digitBtn" onclick="digitClick(event)">5</button>
+                <button class="digitBtn" onclick="digitClick(event)">6</button>
+                <button class="operationBtn" onclick="operatorClick(event)">+</button>
+
+                <button class="digitBtn" onclick="digitClick(event)">1</button>
+                <button class="digitBtn" onclick="digitClick(event)">2</button>
+                <button class="digitBtn" onclick="digitClick(event)">3</button>
+                <button id="equalBtn" class="operationBtn">=</button>
+
+                <button class="digitBtn" onclick="digitClick(event)">00</button>
+                <button class="digitBtn" onclick="digitClick(event)">0</button>
+                <button class="digitBtn" onclick="digitClick(event)">.</button>
+            </div>
+        </div>
+
+        <script src="script.js"></script>
+    </body>
+</html>

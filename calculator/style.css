@@ -1,0 +1,211 @@
+@font-face {
+    font-family: Roboto;
+    src: url("./font/Roboto-Regular.ttf");
+}
+
+body {
+    height: 100vh;
+    margin: 0;
+
+    font-family: Roboto, Arial;
+     background-color: rgb(190, 249, 187);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+}
+
+.circle, .square{
+    background-color: rgb(28, 146, 48);
+    position: absolute;
+}
+
+.circle{
+    border-radius: 100%;
+}
+
+.square{
+    border-radius: 30%;
+}
+
+#bot-circle{
+    width: 400px;
+    height: 400px;
+
+    bottom: 2%;
+    right: 20%;
+}
+
+#top-circle{
+    width: 100px;
+    height: 100px;
+
+    top: 10%;
+    right: 80%;
+}
+
+#left-square{
+    width: 150px;
+    height: 150px;
+
+    transform: rotate(40deg);
+
+    bottom: 30%;
+    right: 70%;
+}
+
+#right-square{
+    width: 180px;
+    height: 180px;
+
+    transform: rotate(20deg);
+
+    top: 10%;
+    right: 15%;
+}
+
+@media (max-width: 1000px){
+    #bot-circle{
+        right: 10%;
+    }
+    #right-square{
+        right: 5%;
+    }
+}
+
+@media (max-width: 750px){
+    #bot-circle{
+        right: 5%;
+    }
+}
+
+@media (max-width: 550px){
+    #bot-circle{
+        right: 1%;
+    }
+    #top-circle{
+        right: 79%;
+    }
+    #left-square{
+        right: 65%;
+    }
+}
+
+#outermost-container {
+     background-color: rgb(23, 24, 26);
+     border-radius: 40px;
+     height: 90vh;
+     width: 400px;
+     padding: 10px;
+ 
+    z-index: 1;
+
+    overflow: hidden;
+
+     display: grid;
+     grid-template-rows: 1fr 2fr;
+
+     box-shadow: 10px 10px 80px  rgb(54, 196, 46);
+ }
+
+#output-container {
+    padding: 2% 5%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: center;
+}
+
+#output-container input {
+    text-align: right;
+    width: 100%;
+    border: 0;
+    background-color: transparent;
+    overflow: auto;
+}
+
+#operation-text {
+    font-size: 2.8rem;
+    color: white;
+    padding-bottom: 3%;
+    text-align: right;
+    direction: ltr;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+#result-text {
+    font-size: 1.5rem;
+    color: rgb(172, 172, 172);
+}
+
+@keyframes growAnimation{
+    to{
+        color: white;
+        font-size: 2.8rem;
+    }
+}
+
+.grow{
+    animation: growAnimation 0.8s forwards;
+}
+
+@keyframes shrinkAnimation{
+    to{
+        color: rgb(172, 172, 172);
+        font-size: 1.5rem;
+    }
+}
+
+.shrink{
+    animation: shrinkAnimation 0.8s forwards;
+}
+
+#buttons-container {
+    padding: 4%;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    column-gap: 4%;
+    row-gap: 4%;
+}
+
+#buttons-container button {
+    border-radius: 15px;
+    border: 0;
+    font-size: 1.4rem;
+    cursor: pointer;
+
+    transition: filter 0.10s linear;
+}
+
+.operationBtn:hover,
+.clearBtn:hover {
+    filter: brightness(0.85);
+}
+
+.digitBtn:hover {
+    filter: brightness(1.25);
+}
+
+#equalBtn {
+    grid-row: span 2;
+}
+
+.clearBtn {
+    background-color: rgb(97, 97, 97);
+    color: rgb(167, 167, 167);
+}
+
+.digitBtn {
+    background-color: rgb(48, 49, 54);
+    color: rgb(21, 192, 89);
+}
+
+.operationBtn {
+    color: white;
+    background-color: rgb(13, 158, 71);
+}
