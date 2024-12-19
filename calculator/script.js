@@ -117,20 +117,17 @@ EQUAL_BUTTON.onclick = () => {
         return;
     }
 
-    RESULT_TEXT.classList.add("grow");
-    OPERATION_TEXT.classList.add("shrink");
-
-    // setTimeout(() => {
-    //     RESULT_TEXT.classList.remove("grow");
-    //     OPERATION_TEXT.classList.remove("shrink");
-    // }, 800);
-
-    // EQUAL_BUTTON.addEventListener("click", () => {
-
-    // });
     // can only evaluate if there is an operator
-    // and an operator isn't at the end of the expression
+    // and any operator isn't at the end of the expression
     evaluate();
+
+    // removing the current classes that are obtained from
+    // clearEntryBtn to avoid class conflicts
+    RESULT_TEXT.classList.remove("shrink");
+    OPERATION_TEXT.classList.remove("grow");
+
+    RESULT_TEXT.classList.add("grow");
+    OPERATION_TEXT.classList.add("shrink");    
 };
 
 document.getElementById("clearAllBtn").onclick = () => {
@@ -142,11 +139,21 @@ document.getElementById("clearAllBtn").onclick = () => {
 };
 
 function manageAnimations() {
-    OPERATION_TEXT.classList.replace("shrink", null);
-    RESULT_TEXT.classList.replace("grow", null);
+    OPERATION_TEXT.classList.remove("shrink");
+    RESULT_TEXT.classList.remove("grow");
 }
 
 document.getElementById("clearEntryBtn").onclick = () => {
+
+    // will not clear any entry if the current expression 
+    // is equaled (result is shown), instead it 
+    // will only restore the previous properties
+    if(OPERATION_TEXT.classList.contains("shrink")){
+        OPERATION_TEXT.classList.replace("shrink", "grow");
+        RESULT_TEXT.classList.replace("grow", "shrink");
+        return;
+    }
+
     if (RESULT_TEXT.value === "Syntax Error") RESULT_TEXT.value = "";
 
     expression = expression.slice(0, expression.length - 1);

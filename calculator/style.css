@@ -143,6 +143,10 @@ body {
 }
 
 @keyframes growAnimation{
+    from{
+        color: rgb(172, 172, 172);
+        font-size: 1.5rem;
+    }
     to{
         color: white;
         font-size: 2.8rem;
@@ -154,6 +158,10 @@ body {
 }
 
 @keyframes shrinkAnimation{
+    from{
+        color: white;
+        font-size: 2.8rem;
+    }
     to{
         color: rgb(172, 172, 172);
         font-size: 1.5rem;
